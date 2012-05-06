@@ -1,0 +1,13 @@
+<li>
+  <h4><%= link_to post.title, post %></h4>
+  <span class="content"><%= post.body.truncate(50) %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(post.created_at) %> ago.
+  </span>
+  <% if current_user?(post.user) or current_user.admin? %>
+    <%= link_to "Delete", post, method:  :delete,
+                                     confirm: "Are you sure?",
+                                     title:   post.title %>
+    <%= link_to 'Edit', edit_post_path(post) %>                   
+  <% end %>
+</li>

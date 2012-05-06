@@ -1,0 +1,15 @@
+<%= form_for(@post) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="field input-name">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field input-body">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="input-submit">
+    <%= f.submit %>
+  </div>
+<% end %>

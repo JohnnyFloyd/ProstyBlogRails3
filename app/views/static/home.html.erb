@@ -1,0 +1,20 @@
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>Posts</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>  
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to my Ruby on Rails app!</h1>
+
+    <%= link_to "Sign up!", signup_path, 
+                                class: "btn btn-large btn-primary" %>
+  </div>
+<% end %> 

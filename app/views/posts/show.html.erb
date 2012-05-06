@@ -1,0 +1,29 @@
+<div class="post">
+	<h2><%=h @post.title %></h2>
+	<p><%=h @post.body %></p>
+</div>
+
+<div class="box">
+	<% if @post.comments.count > 0 %>
+		<h2>Comments</h2>
+		<% i = 0%>
+		<% @post.comments.each do |comment| %>
+		<div class="author"><%= @list[i] %></div>
+		<% i = i + 1 %>
+		<%= render partial: 'comments/comment', object: comment %>
+		<% end %>
+	<% end %>
+</div>
+
+<div class="box">
+	<h2>Add comment</h2>
+	<div class="new-comment">
+		<%= form_for([@post, @post.comments.new]) do |f| %>
+		  <div class="field input-body">
+		    <%= f.text_area :body %>
+		  </div>
+		  <div class="input-submit"><%= f.submit  %></div>
+		<% end %>
+	</div>
+</div>
+<div class="clear"></div>
